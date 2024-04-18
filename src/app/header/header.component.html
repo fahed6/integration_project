@@ -1,0 +1,14 @@
+
+    <mat-toolbar >
+        <span class="logo" >
+            INTEGRATION PROJECT
+        </span>
+    <button class="nav-element" mat-button color="primary" routerLink="/home">home</button>
+    <button class="nav-element" mat-button color="primary" routerLink="/admin" *ngIf="userService.roleMatch(['Admin'])">Admin Dashboard</button>
+    <button class="nav-element" mat-button color="primary" routerLink="/user" *ngIf="userService.roleMatch(['User'])">user Dashboard</button>
+    <button class="nav-element" mat-button color="primary" routerLink="/course" *ngIf="userService.roleMatch(['Admin'])">course Dashboard</button>
+
+    <span class="space-buttons"></span>
+    <button *ngIf="! isLoggedIn()" class="nav-element" mat-raised-button color="primary" routerLink="/login">Login</button>
+    <button *ngIf=" isLoggedIn()" class="nav-element" mat-raised-button color="warn" (click)="logout()" >Logout</button>
+</mat-toolbar>
